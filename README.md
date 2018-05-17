@@ -1,10 +1,10 @@
-[![Circle CI](https://circleci.com/gh/bigbinary/wheel.png?style=badge)](https://circleci.com/gh/bigbinary/wheel)
+[![Circle CI](https://circleci.com/gh/bigbinary/Ediviewer.png?style=badge)](https://circleci.com/gh/bigbinary/Ediviewer)
 
 ## TOC
 * [About](#about)
 * [Local Development Setup](#local-development-setup)
 * [Running with Docker](#running-with-docker)
-* [Replace wheel with your project name](#replace-wheel-with-your-project-name)
+* [Replace Ediviewer with your project name](#replace-Ediviewer-with-your-project-name)
 * [Features](#features)
 * [Heroku Review](#heroku-review)
 
@@ -39,13 +39,13 @@ docker-compose up
 
 After the container is successfully created you should be able to access your app on `http://localhost:9000`
 
-## Replace Wheel with your project name
+## Replace Ediviewer with your project name
 
 Let's say that the project name is `Pump`. Execute the command below to
-replace all occurrences of `Wheel` with `Pump`.
+replace all occurrences of `Ediviewer` with `Pump`.
 
 ```
-perl -e "s/Wheel/Pump/g;" -pi $(find . -type f)
+perl -e "s/Ediviewer/Pump/g;" -pi $(find . -type f)
 ```
 
 ## Features
@@ -89,4 +89,4 @@ automatically deploys an application for that branch.
 
 ![BigBinary](https://raw.githubusercontent.com/bigbinary/bigbinary-assets/press-assets/PNG/logo-light-solid-small.png?raw=true)
 
-wheel is maintained by [BigBinary](https://www.BigBinary.com). BigBinary is a software consultancy company. We build web and mobile applications using Ruby on Rails, React.js, React Native and Elm.
+Ediviewer is maintained by [BigBinary](https://www.BigBinary.com). BigBinary is a software consultancy company. We build web and mobile applications using Ruby on Rails, React.js, React Native and Elm.

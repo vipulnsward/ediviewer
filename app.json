@@ -1,5 +1,5 @@
 {
-  "name": "wheel",
+  "name": "Ediviewer",
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate && bundle exec rake setup_sample_data"
   },

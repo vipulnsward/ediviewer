@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd /wheel
+cd /Ediviewer
 bundle install
 cp config/database.yml.docker config/database.yml
 bundle exec rake setup

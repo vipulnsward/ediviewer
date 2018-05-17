@@ -4,9 +4,9 @@ services:
     image: postgres:9.4
   web:
     build: .
-    command: "bash /wheel/entrypoint.sh"
+    command: "bash /Ediviewer/entrypoint.sh"
     volumes:
-      - .:/wheel
+      - .:/Ediviewer
     ports:
       - "9000:9000"
     depends_on:
