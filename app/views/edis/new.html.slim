@@ -1,0 +1,7 @@
+= simple_form_for Edi.new, html: { class: 'bootstrap-center-form-medium' } do |f|
+  h2 Parse EDI
+  .form-controls
+    = f.input :file, required: true, as: :file, input_html: { class: 'form-control' }
+  .form-buttons
+    = f.button :submit, 'Analyse EDI', class: "btn btn-primary"
+

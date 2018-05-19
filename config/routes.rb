@@ -44,6 +44,7 @@ Ediviewer::Application.routes.draw do
   get "pages/about"
   get "pages/contact_us"
   resources :contacts, only: [:create]
+  resources :edis
 
   authenticated :user do
     get "/pages" => "pages#index", as: :pages

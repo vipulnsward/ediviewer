@@ -1,0 +1,18 @@
+= button_to "Analyze Another EDI", new_edi_path, class: "btn btn-primary"
+br
+br
+- @content.split("\r\n").each_with_index do |line, index|
+  table.table.table-sm.table-bordered
+    thead
+      tr.table-success
+        th scope="col"  colspan="2" #{@headers[index]}
+    thead
+      tr.table-dark
+        th scope="col" colspan="2" #{line}
+    tbody
+      - @values[index].each do |name, value|
+        tr
+          td #{name}
+          td #{value}
+  br
+  br

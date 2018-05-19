@@ -94,7 +94,7 @@ gem "puma", "~> 3.2"
 # gem 'marginalia'
 
 # timeout Rails request, needed if running on heroku- https://devcenter.heroku.com/articles/request-timeout
-gem "rack-timeout"
+gem "rack-timeout", group: [:staging, :production]
 
 # for displaying notifications
 gem "jquery-growl-rails"
@@ -139,3 +139,6 @@ group :development, :test do
   # For splitting tests across CircleCI containers
   gem "knapsack"
 end
+
+gem "stupidedi"
+gem "pry", require: true
