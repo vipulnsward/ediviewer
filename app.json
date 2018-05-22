@@ -4,20 +4,14 @@
     "postdeploy": "bundle exec rake db:migrate && bundle exec rake setup_sample_data"
   },
   "env": {
-    "SECRET_KEY_BASE":{
-      "required":true
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
     },
-   "RACK_ENV": {
+    "RACK_ENV": {
       "value": "staging"
     },
     "RAILS_ENV": {
       "value": "staging"
-    },
-    "AWS_ACCESS_KEY_ID": {
-      "required":true
-    },
-    "AWS_SECRET_ACCESS_KEY": {
-      "required":true
     },
     "HEROKU_APP_NAME": {
       "required": true
@@ -26,7 +20,25 @@
       "value": "DEBUG"
     }
   },
-  "formation": { },
-  "addons": [ "heroku-postgresql" ],
-  "buildpacks": [ ]
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
 }
