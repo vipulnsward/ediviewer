@@ -50,12 +50,6 @@ Ediviewer::Application.routes.draw do
     get "/pages" => "pages#index", as: :pages
   end
 
-  unauthenticated do
-    as :user do
-      root to: "devise/sessions#new", as: :unauthenticated_root
-    end
-  end
-
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       devise_scope :user do
@@ -66,5 +60,5 @@ Ediviewer::Application.routes.draw do
     end
   end
 
-  root "home#index"
+  root "edis#new"
 end

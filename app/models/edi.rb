@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-class Edi
-  include ActiveModel::Model
-
+class Edi < ApplicationRecord
   attr_accessor :file
 end

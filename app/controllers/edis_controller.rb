@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class EdisController < ApplicationController
+  before_action :load_edi, only: [:show]
+
   def new
     render
   end
@@ -8,6 +10,12 @@ class EdisController < ApplicationController
   def create
     parse_content
     extract_values
+    edi = store_edi
+    redirect_to(edi)
+  end
+
+  def show
+    render
   end
 
   private
@@ -24,16 +32,27 @@ class EdisController < ApplicationController
     end
 
     def extract_values
-      @values = []
-      @headers = []
+      index = 0
+      split_content = @content.split("\r\n")
+      @parsed_content = {}
       cursor = @parser.first
       while cursor.defined?
         cursor = cursor.flatmap do |current|
           current_node = current.segment.fetch.node
-          @headers << current_node.definition.name
-          @values << current_node.children.collect { |current|  [current.definition.name, current.try(:value)] }
+          @parsed_content[current_node.definition.name] = { index: index,
+                                                            values: current_node.children.collect { |current|  [current.definition.name, current.try(:value)] },
+                                                            line: split_content[index] }
+          index += 1
           current.next
         end
       end
+    end
+
+    def store_edi
+      Edi.create! file_content: @content, parsed_content: @parsed_content, parsing_errors: {}
+    end
+
+    def load_edi
+      @edi = Edi.find(params[:id])
     end
 end
